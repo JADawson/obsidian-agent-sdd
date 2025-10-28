@@ -9,19 +9,11 @@
 
 ### Session 2025-10-28
 
- Q: Activity Plan structure and scope → A: Per-project only; store under `2) Projects/<Project>/Activity Plans`; required: `tasks[]`, `schedule`, `dependencies`.
- Q: Upstream link precedence for Project planning context → A: Goal primary; Idea secondary (use Idea if Goal is absent).
+- Q: Activity Plan structure and scope → A: Per-project only; store under `2) Projects/<Project>/Activity Plans`; required: `tasks[]`, `schedule`, `dependencies`.
+- Q: Upstream link precedence for Project planning context → A: Goal primary; Idea secondary (use Idea if Goal is absent).
+- Q: Max questions per clarify run → A: 5.
 
 ## User Scenarios & Testing (mandatory)
-
- FR-017: For Project planning/clarify context, the primary upstream reference is the linked Goal; the Idea serves as secondary (fallback if no Goal).
- FR-018: Project filenames MUST be slug-only (no date prefix); templates and scripts SHOULD enforce this naming for idempotency and stable linking.
-links to related notes if detected.
-  - Activity Plan (per-project only; folder: `2) Projects/<Project>/Activity Plans`; frontmatter: tasks[], schedule, dependencies)
-Projects.
-  - Project (frontmatter: owner, scope, phases, status, links: goal, idea)
-    - status enum: `planned` | `active` | `paused` | `completed` | `cancelled`
-    - planning context precedence: Goal > Idea (fallback to Idea if no Goal)
 **Independent Test**: Run `obsidian.create` with type `Idea` and a short
 description; verify a single new Markdown file with correct structure and
 placement is created.
@@ -71,7 +63,7 @@ dry-run diff highlighting proposed clarifications is produced for approval.
 **Acceptance Scenarios**:
 
 1. Given a Project with missing fields, when `obsidian.clarify` runs, then the
-   agent outputs up to N targeted questions and a proposed diff filling required
+  agent outputs up to 5 targeted questions and a proposed diff filling required
    fields for user approval.
 2. Given linked notes exist (Goal, Idea), when clarify runs, then it considers
    their content to reduce duplicate entry and improve accuracy.
@@ -124,6 +116,9 @@ Resolved:
 - FR-014: Tags are strictly curated to `{#idea, #goal, #project, #area, #plan}`; agent MUST validate and reject non‑curated tags (with suggestion to map or remove).
 - FR-015: Frontmatter `id` uses hybrid scheme `slug + short hash` (e.g., `note-title-abc123`); generation MUST be deterministic and collision‑resistant; `id` MUST persist once assigned.
 - FR-016: Project `status` MUST be one of: `planned`, `active`, `paused`, `completed`, `cancelled`; scripts SHOULD validate and normalize to this set.
+- FR-017: For Project planning/clarify context, the primary upstream reference is the linked Goal; the Idea serves as secondary (fallback if no Goal).
+- FR-018: Project filenames MUST be slug-only (no date prefix); templates and scripts SHOULD enforce this naming for idempotency and stable linking.
+- FR-019: Clarify flow MUST ask at most 5 questions per run and stop early if remaining ambiguities are low impact or already resolved.
 
 ### Key Entities (include if feature involves data)
 
@@ -132,8 +127,9 @@ Resolved:
   - Goal (frontmatter: outcome, measurement, timeframe, related_areas)
   - Project (frontmatter: owner, scope, phases, status, links: goal, idea)
     - status enum: `planned` | `active` | `paused` | `completed` | `cancelled`
+    - planning context precedence: Goal > Idea (fallback to Idea if no Goal)
   - Area (frontmatter: scope, responsibilities)
-  - Activity Plan (per-project only; folder: `Projects/<Project>/Activity Plans`; frontmatter: tasks[], schedule, dependencies)
+  - Activity Plan (per-project only; folder: `2) Projects/<Project>/Activity Plans`; frontmatter: tasks[], schedule, dependencies)
   - All note types share general frontmatter including `id` in the format `slug-hash6`.
 
 - Operation:
