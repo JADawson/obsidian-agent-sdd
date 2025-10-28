@@ -20,7 +20,7 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
- - **Obsidian Agent**: `prompts/`, `.obsidian/scripts/powershell/`, `.obsidian/templates/`, `vault/` (target)
+ - **Obsidian Agent**: `.obsidian/prompts/`, `.obsidian/scripts/powershell/`, `.obsidian/templates/`, `vault/` (target)
 - **Single project**: `src/`, `tests/` at repository root
 - **Web app**: `backend/src/`, `frontend/src/`
 - **Mobile**: `api/src/`, `ios/src/` or `android/src/`

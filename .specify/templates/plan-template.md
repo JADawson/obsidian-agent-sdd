@@ -63,7 +63,7 @@ specs/[###-feature]/
 
 ```text
 # Obsidian Agent (DEFAULT)
-prompts/
+.obsidian/prompts/
 .obsidian/scripts/powershell/
 .obsidian/templates/   # markdown templates for note types (authoritative)
 .agent/logs/           # traces & dry‑run outputs (not committed)

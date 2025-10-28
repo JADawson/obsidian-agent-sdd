@@ -2,7 +2,7 @@
 
 <!--
 Sync Impact Report
-Version change: 0.1.0 → 0.2.0
+Version change: 0.2.0 → 0.3.0
 Modified principles:
 - [PRINCIPLE_1_NAME] → Markdown‑First, Vault‑Native
 - [PRINCIPLE_2_NAME] → Template‑Driven, Prompt‑Oriented
@@ -26,6 +26,7 @@ Follow-up TODOs:
 - Add initial Obsidian templates for Idea and Project note types
 - Add agent prompts: obsidian.create.idea, obsidian.create.project, obsidian.elaborate, obsidian.clarify, obsidian.challenge
 - Add PowerShell scripts to operate within a vault folder (create, update, dry‑run)
+ - Migrate project prompts to `.obsidian/prompts/`; exclude original `.github/` via .gitignore
 -->
 
 ## Core Principles
@@ -69,9 +70,12 @@ configurable "test vault" path SHOULD be available for rehearsals.
 The original `.specify/templates` and `.specify/scripts/powershell` directories
 MUST remain intact as reference guides. This project MUST create its own
 operational assets under `.obsidian/templates` (for note templates) and
-`.obsidian/scripts/powershell` (for scripts). Changes and versioning apply to
+`.obsidian/scripts/powershell` (for scripts). Prompts that belong to this
+project MUST reside under `.obsidian/prompts/`. The original `.github/prompts`
+are considered reference only. Changes and versioning apply to
 these `.obsidian/` assets; reference materials in `.specify/` MUST NOT be
-modified by default.
+modified by default. Where feasible, `.specify/` and the original `.github/`
+SHOULD be excluded from version control via `.gitignore`.
 
 ## Vault Structure & Content Standards
 
@@ -88,6 +92,8 @@ modified by default.
 - Templates MUST declare required fields and link/placement rules.
 - Authoritative template location: `.obsidian/templates/` (versioned).
 - Scripts location: `.obsidian/scripts/powershell/` with dry‑run support.
+- Prompts location: `.obsidian/prompts/` (versioned). Original `.github/prompts`
+	are treated as reference only and may be ignored by VCS.
 
 ## Development Workflow & Quality Gates
 
@@ -121,5 +127,5 @@ Quality gates:
 - Compliance reviews SHOULD occur at least once per quarter or before major
 	releases of templates/prompts.
 
-**Version**: 0.2.0 | **Ratified**: TODO(RATIFICATION_DATE) | **Last Amended**: 2025-10-28
+**Version**: 0.3.0 | **Ratified**: TODO(RATIFICATION_DATE) | **Last Amended**: 2025-10-28
 <!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->

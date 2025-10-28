@@ -1,0 +1,13 @@
+# Vendor/Reference assets from Spec-Kit (kept locally, not tracked)
+.specify/
+.github/
+
+# Agent logs and working folders
+.agent/
+.agent/logs/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/settings.json
