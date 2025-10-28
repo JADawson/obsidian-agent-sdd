@@ -1,10 +1,15 @@
-# Feature Specification: [FEATURE NAME]
 # Feature Specification: Note Templates & Prompts
 
 **Feature Branch**: `001-note-templates-prompts`  
 **Created**: 2025-10-28  
 **Status**: Draft  
 **Input**: User description: "Define initial Obsidian note types (Idea, Goal, Project, Area, Activity Plan) and agent prompts (create, elaborate, clarify, plan, challenge) with frontmatter rules and context reading."
+
+## Clarifications
+
+### Session 2025-10-28
+
+- Q: Activity Plan structure and scope → A: Per-project only; store under `Projects/<Project>/Activity Plans`; required: `tasks[]`, `schedule`, `dependencies`.
 
 ## User Scenarios & Testing (mandatory)
 
@@ -110,12 +115,14 @@ dry-run diff highlighting proposed clarifications is produced for approval.
 
 NEEDS CLARIFICATION (max 3):
 
-- FR-013: [NEEDS CLARIFICATION: Activity Plan structure and scope (per-project
-  plan vs standalone; required fields and folder location)]
 - FR-014: [NEEDS CLARIFICATION: Tag taxonomy boundaries (allowed set and
   governance for adding new tags)]
 - FR-015: [NEEDS CLARIFICATION: Frontmatter `id` scheme (human slug vs UUID vs
   hash) and persistence rules]
+
+Resolved:
+
+- FR-013: Activity Plans are per-project only; stored under `Projects/<Project>/Activity Plans`; required frontmatter: `tasks` (array), `schedule`, `dependencies`.
 
 ### Key Entities (include if feature involves data)
 
@@ -124,7 +131,7 @@ NEEDS CLARIFICATION (max 3):
   - Goal (frontmatter: outcome, measurement, timeframe, related_areas)
   - Project (frontmatter: owner, scope, phases, status, links: goal, idea)
   - Area (frontmatter: scope, responsibilities)
-  - Activity Plan (frontmatter: tasks, schedule, dependencies) — see FR-013
+  - Activity Plan (per-project only; folder: `Projects/<Project>/Activity Plans`; frontmatter: tasks[], schedule, dependencies)
 
 - Operation:
   - Create (obsidian.create): inputs: type?, title, description; outputs:
@@ -149,7 +156,4 @@ NEEDS CLARIFICATION (max 3):
   Code.
 - SC-004: Re‑running an operation on the same note produces no unintended
   duplication (idempotency verified in audit).
-- **SC-001**: [Measurable metric, e.g., "Users can complete account creation in under 2 minutes"]
-- **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
-- **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
-- **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
