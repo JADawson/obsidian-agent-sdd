@@ -70,12 +70,12 @@
 
 ### Implementation for User Story 1
 
-- [ ] T025 [P] [US1] Implement Idea generation logic in `.obsidian/scripts/powershell/obsidian.create.ps1` (type=idea)
-- [ ] T026 [P] [US1] Write Idea frontmatter builder using template `.obsidian/templates/idea.v1.md`
-- [ ] T027 [US1] Enforce curated tags and general frontmatter in create flow (id, type, status, created, updated, tags)
-- [ ] T028 [US1] Ensure placement to `Vault/0) Ideas/` and filename sanitation
-- [ ] T029 [US1] Integrate dry-run diff + approval; on approve, write file and trace
-- [ ] T030 [US1] Update `.obsidian/prompts/obsidian.create.md` with Idea usage examples
+- [x] T025 [P] [US1] Implement Idea generation logic in `.obsidian/scripts/powershell/obsidian.create.ps1` (type=idea)
+- [x] T026 [P] [US1] Write Idea frontmatter builder using template `.obsidian/templates/idea.v1.md`
+- [x] T027 [US1] Enforce curated tags and general frontmatter in create flow (id, type, status, created, updated, tags)
+- [x] T028 [US1] Ensure placement to `Vault/0) Ideas/` and filename sanitation
+- [x] T029 [US1] Integrate dry-run diff + approval; on approve, write file and trace
+- [x] T030 [US1] Update `.obsidian/prompts/obsidian.create.md` with Idea usage examples
 
 **Checkpoint**: User Story 1 functional and independently testable
 

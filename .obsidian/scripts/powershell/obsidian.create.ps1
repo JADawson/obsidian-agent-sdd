@@ -4,47 +4,81 @@ param(
     [string]$Type,
     [Parameter(Mandatory)][string]$Title,
     [string]$Description = '',
-    [switch]$DryRun = $true
+    [switch]$DryRun = $true,
+    [switch]$Approve
 )
 
 $ErrorActionPreference = 'Stop'
-Import-Module -Name "$PSScriptRoot/helpers.ps1" -Force
+Import-Module -Name "$PSScriptRoot/helpers.psm1" -Force
 
 $cfg = Get-ObsidianConfig
+$today = (Get-Date).ToString('yyyy-MM-dd')
+$effectiveType = if ($Type) { $Type } else { 'idea' }
 $noteId = New-NoteId -Title $Title
 $slug = Get-Slug -Text $Title
-$folder = if ($Type) { Get-PlacementFolder -Type $Type } else { Get-PlacementFolder -Type 'idea' }
+$folder = Get-PlacementFolder -Type $effectiveType
 
 # Build filename and target path
 $fileName = (Sanitize-Filename -Name "$slug.md")
 $relPath = Join-Path -Path $folder -ChildPath $fileName
 $targetPath = Resolve-VaultPath -RelativePath $relPath
 
-# Load template (basic; placeholder replacement to be expanded in story phases)
-$templateName = if ($Type) { "$Type.v1.md" } else { 'idea.v1.md' }
+# Load template and fill placeholders (US1 implementation)
+$templateName = "$effectiveType.v1.md"
 $templatePath = Join-Path -Path "$PSScriptRoot/../../templates" -ChildPath $templateName
 if (-not (Test-Path -LiteralPath $templatePath)) { throw "Template not found: $templatePath" }
 $content = Get-Content -LiteralPath $templatePath -Raw
-$content = $content -replace '<id>',$noteId -replace '<Title>',$Title
+$content = $content `
+    -replace '<id>',$noteId `
+    -replace '<Title>',$Title `
+    -replace '<YYYY-MM-DD>',$today
+
+# Enforce curated tag for Idea (US1); for other types templates already carry correct tag
+if ($effectiveType -eq 'idea') {
+    # ensure at least one '#idea' tag in YAML; template includes it already
+    if ($content -notmatch "#idea") {
+        $content = $content -replace "tags:\s*\r?\n", "tags:`r`n  - #idea`r`n"
+    }
+}
 
 $diff = New-DryRunDiff -TargetPath $targetPath -NewContent $content
 $tracePath = Write-Trace -Data @{
     command = 'obsidian.create'
-    params = @{ type = $Type; title = $Title; description = $Description; dryRun = [bool]$DryRun }
+    params = @{ type = $effectiveType; title = $Title; description = $Description; dryRun = [bool]$DryRun; approve = [bool]$Approve }
     target = $relPath
     diff = $diff
+    noteId = $noteId
+    template = $templateName
 }
 
-if ($DryRun) {
+# Dry-run behavior with optional approval
+if ($DryRun -and -not $Approve) {
     Write-Host "Dry-run diff (see trace: $tracePath):" -ForegroundColor Cyan
     Write-Host $diff
+    Write-Host "To apply, re-run with -Approve (interactive approval) or -DryRun:$false" -ForegroundColor Yellow
     exit 0
+}
+
+if ($Approve) {
+    Write-Host "Applying changes (approved). Diff (see trace: $tracePath):" -ForegroundColor Cyan
+    Write-Host $diff
 }
 
 # Ensure folder exists
 $targetDir = Split-Path -Path $targetPath -Parent
 if (-not (Test-Path -LiteralPath $targetDir)) { New-Item -ItemType Directory -Path $targetDir | Out-Null }
 
-# Write file
+# No-op if exists with same content
+if (Test-Path -LiteralPath $targetPath) {
+    $existing = Get-Content -LiteralPath $targetPath -Raw
+    if ($existing -eq $content) {
+        Write-Host "No changes: $relPath already up-to-date" -ForegroundColor Yellow
+        exit 0
+    }
+}
+
+# Ensure directory and write file
+$targetDir = Split-Path -Path $targetPath -Parent
+if (-not (Test-Path -LiteralPath $targetDir)) { New-Item -ItemType Directory -Path $targetDir | Out-Null }
 Set-Content -LiteralPath $targetPath -Value $content -Encoding UTF8
-Write-Host "Created: $relPath (id: $noteId)" -ForegroundColor Green
+Write-Host "Created/Updated: $relPath (id: $noteId)" -ForegroundColor Green
