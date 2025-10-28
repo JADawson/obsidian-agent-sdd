@@ -64,9 +64,9 @@ specs/[###-feature]/
 ```text
 # Obsidian Agent (DEFAULT)
 prompts/
-scripts/powershell/
-.specify/templates/   # markdown templates for note types
-.agent/logs/          # traces & dry‑run outputs (not committed)
+.obsidian/scripts/powershell/
+.obsidian/templates/   # markdown templates for note types (authoritative)
+.agent/logs/           # traces & dry‑run outputs (not committed)
 ```
 
 **Structure Decision**: [Document the selected structure and reference the real
