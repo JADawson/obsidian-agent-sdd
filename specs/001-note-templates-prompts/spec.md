@@ -12,6 +12,7 @@
 - Q: Activity Plan structure and scope → A: Per-project only; store under `Projects/<Project>/Activity Plans`; required: `tasks[]`, `schedule`, `dependencies`.
 - Q: Tag taxonomy boundaries → A: Strict curated list only: `{#idea, #goal, #project, #area, #plan}`.
 - Q: Frontmatter id scheme → A: Hybrid `slug + short hash` (e.g., `project-abc123`).
+- Q: Project status controlled vocabulary → A: planned, active, paused, completed, cancelled.
 
 ## User Scenarios & Testing (mandatory)
 
@@ -125,6 +126,7 @@ Resolved:
 - FR-013: Activity Plans are per-project only; stored under `2) Projects/<Project>/Activity Plans`; required frontmatter: `tasks` (array), `schedule`, `dependencies`.
 - FR-014: Tags are strictly curated to `{#idea, #goal, #project, #area, #plan}`; agent MUST validate and reject non‑curated tags (with suggestion to map or remove).
 - FR-015: Frontmatter `id` uses hybrid scheme `slug + short hash` (e.g., `note-title-abc123`); generation MUST be deterministic and collision‑resistant; `id` MUST persist once assigned.
+- FR-016: Project `status` MUST be one of: `planned`, `active`, `paused`, `completed`, `cancelled`; scripts SHOULD validate and normalize to this set.
 
 ### Key Entities (include if feature involves data)
 
@@ -132,6 +134,7 @@ Resolved:
   - Idea (frontmatter: problem, context, related_areas, candidate_projects)
   - Goal (frontmatter: outcome, measurement, timeframe, related_areas)
   - Project (frontmatter: owner, scope, phases, status, links: goal, idea)
+    - status enum: `planned` | `active` | `paused` | `completed` | `cancelled`
   - Area (frontmatter: scope, responsibilities)
   - Activity Plan (per-project only; folder: `Projects/<Project>/Activity Plans`; frontmatter: tasks[], schedule, dependencies)
   - All note types share general frontmatter including `id` in the format `slug-hash6`.
