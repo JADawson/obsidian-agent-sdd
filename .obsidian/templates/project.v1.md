@@ -9,13 +9,15 @@ tags:
 links:
   idea: [[<Idea Note>]]
   goal: [[<Goal Note>]]
+  area: [[<Owning Area>]]
 ---
 
 # <Title>
 
-## Owner
+## Ownership
 
-<Name>
+- Owning Area: [[<Owning Area>]]
+- Collaborators: <Names>
 
 ## Scope
 
