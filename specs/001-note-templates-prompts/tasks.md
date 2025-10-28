@@ -107,10 +107,10 @@
 
 ### Implementation for User Story 3
 
-- [ ] T036 [P] [US3] Create script entrypoint `.obsidian/scripts/powershell/obsidian.clarify.ps1` (scaffold: parameters, dry-run, import helpers)
-- [ ] T037 [P] [US3] Implement analyzer to read selected Project + linked notes (Idea/Goal)
-- [ ] T038 [US3] Generate up to N questions and a proposed diff; write to trace
-- [ ] T039 [US3] Update `.obsidian/prompts/obsidian.clarify.md` with usage examples
+- [x] T036 [P] [US3] Create script entrypoint `.obsidian/scripts/powershell/obsidian.clarify.ps1` (scaffold: parameters, dry-run, import helpers)
+- [x] T037 [P] [US3] Implement analyzer to read selected Project + linked notes (Idea/Goal)
+- [x] T038 [US3] Generate up to N questions and a proposed diff; write to trace
+- [x] T039 [US3] Update `.obsidian/prompts/obsidian.clarify.md` with usage examples
 
 **Checkpoint**: All user stories independently functional
 
