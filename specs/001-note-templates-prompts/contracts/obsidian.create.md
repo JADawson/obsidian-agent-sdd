@@ -10,7 +10,7 @@ Purpose: Create a note of a given type using the appropriate template, placing i
 ## Behavior
 - Read constitution rules, validate type and placement
 - Generate id (slug-hash6) and filename (sanitized)
-- Place note in folder by type (Idea→Reference/Ideas, Project→Projects, etc.)
+- Place note in folder by type (Idea→`0) Ideas`, Goal→`1) Goals`, Project→`2) Projects`, Area→`3) Areas`, Reference→`4) Reference`).
 - Populate general + type-specific frontmatter
 - Suggest links to related notes
 
