@@ -128,9 +128,9 @@
 
 Additional cleanup/polish tasks:
 
-- [ ] T045 [P] Add `.obsidian/templates/README.md` documenting placeholders, required frontmatter (status enum, links.area), and conventions
-- [ ] T046 Create `.agent/README.md` and document logs format, retention, and privacy considerations (fulfill T044 here)
-- [ ] T047 Refactor helper verbs to approved names: `Sanitize-Filename` → `ConvertTo-FilenameSafe`, `Get-Slug` → `ConvertTo-Slug`; update module exports and script imports
+- [x] T045 [P] Add `.obsidian/templates/README.md` documenting placeholders, required frontmatter (status enum, links.area), and conventions
+- [x] T046 Create `.agent/README.md` and document logs format, retention, and privacy considerations (fulfill T044 here)
+- [x] T047 Refactor helper verbs to approved names: `Sanitize-Filename` → `ConvertTo-FilenameSafe`, `Get-Slug` → `ConvertTo-Slug`; update module exports and script imports
 - [ ] T048 Update prompt docs to reflect approved-verb refactor where referenced and ensure numbered Vault and `-Approve` examples across: `.obsidian/prompts/obsidian.create.md`, `.obsidian/prompts/obsidian.plan.md`, `.obsidian/prompts/obsidian.clarify.md`
 - [ ] T049 Improve `obsidian.plan.ps1` idempotent updates: preserve existing body content on re-run; update only frontmatter fields when target Project already exists
 - [ ] T050 Add `obsidian.validate.ps1` to scan Vault for spec violations (tags set, status enum, presence of `links.area`, vault boundary); dry-run by default with report to `.agent/logs/`

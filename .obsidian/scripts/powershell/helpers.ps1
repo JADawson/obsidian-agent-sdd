@@ -26,7 +26,7 @@ function Get-ObsidianConfig {
     return $script:ObsidianConfig
 }
 
-function Get-Slug {
+function ConvertTo-Slug {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)][string]$Text
@@ -64,12 +64,12 @@ function New-NoteId {
         [int]$HashLength = $(Get-ObsidianConfig).id.hashLength,
         [string]$Separator = $(Get-ObsidianConfig).id.separator
     )
-    $slug = Get-Slug -Text $Title
+    $slug = ConvertTo-Slug -Text $Title
     $hash = Get-ShortHash -Text $Title -Length $HashLength
     return "$slug$Separator$hash"
 }
 
-function Sanitize-Filename {
+function ConvertTo-FilenameSafe {
     [CmdletBinding()]
     param(
         [Parameter(Mandatory)][string]$Name,

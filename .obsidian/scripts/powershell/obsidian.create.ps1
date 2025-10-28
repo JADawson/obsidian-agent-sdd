@@ -15,11 +15,11 @@ $cfg = Get-ObsidianConfig
 $today = (Get-Date).ToString('yyyy-MM-dd')
 $effectiveType = if ($Type) { $Type } else { 'idea' }
 $noteId = New-NoteId -Title $Title
-$slug = Get-Slug -Text $Title
+$slug = ConvertTo-Slug -Text $Title
 $folder = Get-PlacementFolder -Type $effectiveType
 
 # Build filename and target path
-$fileName = (Sanitize-Filename -Name "$slug.md")
+$fileName = (ConvertTo-FilenameSafe -Name "$slug.md")
 $relPath = Join-Path -Path $folder -ChildPath $fileName
 $targetPath = Resolve-VaultPath -RelativePath $relPath
 

@@ -33,9 +33,9 @@ if ($ideaTitle) { $ideaTitle = $ideaTitle -replace '^#\s+','' } else { $ideaTitl
 # 2) Compute Project note details
 $projectTitle = $ideaTitle
 $noteId = New-NoteId -Title $projectTitle
-$slug = Get-Slug -Text $projectTitle
+$slug = ConvertTo-Slug -Text $projectTitle
 $folder = Get-PlacementFolder -Type 'project'
-$fileName = (Sanitize-Filename -Name "$slug.md")
+$fileName = (ConvertTo-FilenameSafe -Name "$slug.md")
 $relPath = Join-Path -Path $folder -ChildPath $fileName
 $targetPath = Resolve-VaultPath -RelativePath $relPath
 
