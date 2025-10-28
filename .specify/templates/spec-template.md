@@ -5,6 +5,11 @@
 **Status**: Draft  
 **Input**: User description: "$ARGUMENTS"
 
+> For Obsidian Agent features, a "feature" may be a new note type/template,
+> an agent prompt (e.g., `obsidian.create.project`), or a script that performs
+> vault operations. User scenarios should focus on note creation, enrichment,
+> linking, placement, and safety checks.
+
 ## User Scenarios & Testing *(mandatory)*
 
 <!--
@@ -84,11 +89,11 @@
 
 ### Functional Requirements
 
-- **FR-001**: System MUST [specific capability, e.g., "allow users to create accounts"]
-- **FR-002**: System MUST [specific capability, e.g., "validate email addresses"]  
-- **FR-003**: Users MUST be able to [key interaction, e.g., "reset their password"]
-- **FR-004**: System MUST [data requirement, e.g., "persist user preferences"]
-- **FR-005**: System MUST [behavior, e.g., "log all security events"]
+- **FR-001**: Agent MUST create notes from templates with required fields
+- **FR-002**: Agent MUST place notes in correct vault folders per constitution  
+- **FR-003**: Agent MUST support dry‑run mode showing diffs for human approval
+- **FR-004**: Agent MUST maintain links and tags according to template rules
+- **FR-005**: Scripts MUST operate only within the configured vault path
 
 *Example of marking unclear requirements:*
 
@@ -97,8 +102,8 @@
 
 ### Key Entities *(include if feature involves data)*
 
-- **[Entity 1]**: [What it represents, key attributes without implementation]
-- **[Entity 2]**: [What it represents, relationships to other entities]
+- **[Note Type]**: [Idea, Project, etc.; frontmatter keys, required sections]
+- **[Operation]**: [Create, Elaborate, Clarify, Challenge; inputs/outputs]
 
 ## Success Criteria *(mandatory)*
 

@@ -12,11 +12,11 @@ Auto-generated from all feature plans. Last updated: [DATE]
 [ACTUAL STRUCTURE FROM PLANS]
 ```
 
-## Commands
+## Agent Commands & Prompts
 
 [ONLY COMMANDS FOR ACTIVE TECHNOLOGIES]
 
-## Code Style
+## Script & Prompt Style
 
 [LANGUAGE-SPECIFIC, ONLY FOR LANGUAGES IN USE]
 
