@@ -10,6 +10,7 @@
 ### Session 2025-10-28
 
 - Q: Activity Plan structure and scope → A: Per-project only; store under `Projects/<Project>/Activity Plans`; required: `tasks[]`, `schedule`, `dependencies`.
+- Q: Tag taxonomy boundaries → A: Strict curated list only: `{#idea, #goal, #project, #area, #plan}`.
 
 ## User Scenarios & Testing (mandatory)
 
@@ -123,6 +124,7 @@ NEEDS CLARIFICATION (max 3):
 Resolved:
 
 - FR-013: Activity Plans are per-project only; stored under `Projects/<Project>/Activity Plans`; required frontmatter: `tasks` (array), `schedule`, `dependencies`.
+- FR-014: Tags are strictly curated to `{#idea, #goal, #project, #area, #plan}`; agent MUST validate and reject non‑curated tags (with suggestion to map or remove).
 
 ### Key Entities (include if feature involves data)
 
