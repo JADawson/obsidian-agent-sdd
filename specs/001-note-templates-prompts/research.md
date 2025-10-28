@@ -11,7 +11,7 @@ Branch: 001-note-templates-prompts
 
 ## Unknowns to confirm
 
-- Staging/Test Vault Path (separate from Virtual Vault)
+- (resolved) Staging/Test Vault Path — Decision: use the Virtual Vault only for now at `C:\\Local Dev\\obsidian-agent\\Vault`; no separate staging vault initially.
 
 ## Best practices for this domain
 
