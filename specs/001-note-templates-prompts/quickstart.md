@@ -13,6 +13,11 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
 
 ## Structure
+- Vault/ (Virtual Vault for development/testing)
+	- Projects/
+	- Areas/
+	- Reference/Ideas/
+	- Archive/
 - .obsidian/templates/ (Idea, Goal, Project, Area, Activity Plan)
 - .obsidian/prompts/ (obsidian.create, obsidian.elaborate, obsidian.clarify, obsidian.plan, obsidian.challenge)
 - .obsidian/scripts/powershell/ (create + helpers)
@@ -21,6 +26,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ## Usage (conceptual)
 - Use Copilot slash commands or run scripts directly with dry-run by default.
 - Select a note in VS Code when using context-sensitive prompts.
+- For development, operate against the Virtual Vault at `./Vault`.
 
 ## Safety and Idempotency
 - Dry-run by default; human approval required before writes.

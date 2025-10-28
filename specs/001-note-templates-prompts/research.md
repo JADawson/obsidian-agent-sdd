@@ -11,8 +11,7 @@ Branch: 001-note-templates-prompts
 
 ## Unknowns to confirm
 
-- Vault Path (absolute path to target vault)
-- Staging/Test Vault Path for dry-runs
+- Staging/Test Vault Path (separate from Virtual Vault)
 
 ## Best practices for this domain
 

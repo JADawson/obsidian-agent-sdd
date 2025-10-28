@@ -27,11 +27,11 @@ assets under `.obsidian/` per constitution.
 -->
 
 **Shell/Runtime**: PowerShell 5.1+; VS Code + Copilot  
-**Vault Path**: NEEDS CLARIFICATION (absolute path)  
+**Vault Path**: ./Vault (Virtual Vault for development/testing)  
 **Note Types & Templates**: Idea v1, Goal v1, Project v1, Area v1, Activity Plan v1 (per‑project only)  
 **Agent Prompts**: obsidian.create, obsidian.elaborate, obsidian.clarify, obsidian.plan, obsidian.challenge  
 **Scripts**: `.obsidian/scripts/powershell/obsidian.create.ps1` (create by type/infer), plus shared helpers for id generation (slug+hash), dry‑run, tracing  
-**Testing**: Default dry‑run; staging vault path RECOMMENDED (NEEDS CLARIFICATION); sample inputs from spec user stories  
+**Testing**: Default dry‑run; use Virtual Vault for local tests; optional separate staging vault path (future)  
 **Target Platform**: Windows; local filesystem  
 **Project Type**: Obsidian Agent / Vault automation  
 **Constraints**: Idempotent writes; least‑privilege IO; offline‑first; curated tags `{#idea, #goal, #project, #area, #plan}`; stable `id`  
@@ -49,7 +49,7 @@ Gates (must all pass):
 - Safety & Least Privilege: Operate only within vault; no destructive ops without opt‑in ✔
 - Separation of Spec‑Kit Assets: Authoritative assets under `.obsidian/` ✔
 
-Status: PASS (pending Vault Path confirmation)
+Status: PASS (using Virtual Vault path ./Vault)
 
 ## Project Structure
 
