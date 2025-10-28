@@ -54,3 +54,19 @@ Scripts read this file to resolve vault-safe paths and placement rules.
 ## Safety and Idempotency
 - Dry-run by default; human approval required before writes.
 - Operations are idempotent and log traces to .agent/logs.
+
+## Try it
+
+1) Create an Idea (dry-run then apply):
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File ".obsidian/scripts/powershell/obsidian.create.ps1" -Type idea -Title "US1 Test Idea"
+powershell -NoProfile -ExecutionPolicy Bypass -File ".obsidian/scripts/powershell/obsidian.create.ps1" -Type idea -Title "US1 Test Idea" -Approve
+```
+
+2) Plan from Idea → Project (dry-run then apply):
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File ".obsidian/scripts/powershell/obsidian.plan.ps1" -SelectedPath "Vault/0) Ideas/us1-test-idea.md"
+powershell -NoProfile -ExecutionPolicy Bypass -File ".obsidian/scripts/powershell/obsidian.plan.ps1" -SelectedPath "Vault/0) Ideas/us1-test-idea.md" -Approve
+```
