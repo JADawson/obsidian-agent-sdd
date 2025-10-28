@@ -89,11 +89,11 @@
 
 ### Implementation for User Story 2
 
-- [ ] T031 [P] [US2] Create script entrypoint `.obsidian/scripts/powershell/obsidian.plan.ps1` (scaffold: parameters, dry-run, import helpers)
-- [ ] T032 [P] [US2] Implement Idea→Project transformation (map fields; link back to Idea)
-- [ ] T033 [US2] Ensure placement to `Vault/2) Projects/` with `.obsidian/templates/project.v1.md`
-- [ ] T034 [US2] Add idempotent update behavior if Project already exists (no duplicate)
-- [ ] T035 [US2] Update `.obsidian/prompts/obsidian.plan.md` with usage examples
+- [x] T031 [P] [US2] Create script entrypoint `.obsidian/scripts/powershell/obsidian.plan.ps1` (scaffold: parameters, dry-run, import helpers)
+- [x] T032 [P] [US2] Implement Idea→Project transformation (map fields; link back to Idea)
+- [x] T033 [US2] Ensure placement to `Vault/2) Projects/` with `.obsidian/templates/project.v1.md`
+- [x] T034 [US2] Add idempotent update behavior if Project already exists (no duplicate)
+- [x] T035 [US2] Update `.obsidian/prompts/obsidian.plan.md` with usage examples
 
 **Checkpoint**: User Stories 1 and 2 functional and independently testable
 
