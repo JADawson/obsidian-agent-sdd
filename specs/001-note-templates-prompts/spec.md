@@ -11,6 +11,7 @@
 
 - Q: Activity Plan structure and scope → A: Per-project only; store under `Projects/<Project>/Activity Plans`; required: `tasks[]`, `schedule`, `dependencies`.
 - Q: Tag taxonomy boundaries → A: Strict curated list only: `{#idea, #goal, #project, #area, #plan}`.
+- Q: Frontmatter id scheme → A: Hybrid `slug + short hash` (e.g., `project-abc123`).
 
 ## User Scenarios & Testing (mandatory)
 
@@ -102,7 +103,8 @@ dry-run diff highlighting proposed clarifications is produced for approval.
 - FR-006: Agent SHOULD read selected note and directly linked notes to derive
   context before proposing changes.
 - FR-007: General frontmatter MUST include: `id`, `type`, `status`, `created`,
-  `updated`, `tags`.
+  `updated`, `tags`. The `id` MUST be a hybrid of a human‑readable slug and a
+  short hash (e.g., `my-title-abc123`), remaining stable across renames.
 - FR-008: Type-specific frontmatter MUST be enforced per template (see Key
   Entities).
 - FR-009: Operations MUST be idempotent; re‑running on the same input yields a
@@ -116,15 +118,13 @@ dry-run diff highlighting proposed clarifications is produced for approval.
 
 NEEDS CLARIFICATION (max 3):
 
-- FR-014: [NEEDS CLARIFICATION: Tag taxonomy boundaries (allowed set and
-  governance for adding new tags)]
-- FR-015: [NEEDS CLARIFICATION: Frontmatter `id` scheme (human slug vs UUID vs
-  hash) and persistence rules]
+<!-- none -->
 
 Resolved:
 
 - FR-013: Activity Plans are per-project only; stored under `Projects/<Project>/Activity Plans`; required frontmatter: `tasks` (array), `schedule`, `dependencies`.
 - FR-014: Tags are strictly curated to `{#idea, #goal, #project, #area, #plan}`; agent MUST validate and reject non‑curated tags (with suggestion to map or remove).
+- FR-015: Frontmatter `id` uses hybrid scheme `slug + short hash` (e.g., `note-title-abc123`); generation MUST be deterministic and collision‑resistant; `id` MUST persist once assigned.
 
 ### Key Entities (include if feature involves data)
 
@@ -134,6 +134,7 @@ Resolved:
   - Project (frontmatter: owner, scope, phases, status, links: goal, idea)
   - Area (frontmatter: scope, responsibilities)
   - Activity Plan (per-project only; folder: `Projects/<Project>/Activity Plans`; frontmatter: tasks[], schedule, dependencies)
+  - All note types share general frontmatter including `id` in the format `slug-hash6`.
 
 - Operation:
   - Create (obsidian.create): inputs: type?, title, description; outputs:
