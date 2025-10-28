@@ -9,18 +9,14 @@
 
 ### Session 2025-10-28
 
-- Q: Activity Plan structure and scope → A: Per-project only; store under `2) Projects/<Project>/Activity Plans`; required: `tasks[]`, `schedule`, `dependencies`.
-- Q: Upstream link precedence for Project planning context → A: Goal primary; Idea secondary (use Idea if Goal is absent).
-- Q: Max questions per clarify run → A: 5.
+ - Q: Project ownership model → A: Use Area as owner (no person); reference via `links.area`.
 
 ## User Scenarios & Testing (mandatory)
-**Independent Test**: Run `obsidian.create` with type `Idea` and a short
-description; verify a single new Markdown file with correct structure and
+ - FR-020: Each Project MUST link exactly one owning Area via frontmatter `links.area` (required). Person-level owners are not used; collaborators MAY be listed in body content.
 placement is created.
-
 **Acceptance Scenarios**:
 
-1. Given no existing note with the same title, when the user runs
+  - Project (frontmatter: scope, phases, status, links: goal, idea, area)
   `obsidian.create` with type `Idea`, then a new note is created in
   `0) Ideas/` with required general and type-specific frontmatter.
 2. Given related notes exist, when creating the Idea, then the agent suggests or
