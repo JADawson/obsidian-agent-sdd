@@ -9,22 +9,19 @@
 
 ### Session 2025-10-28
 
-- Q: Activity Plan structure and scope → A: Per-project only; store under `Projects/<Project>/Activity Plans`; required: `tasks[]`, `schedule`, `dependencies`.
-- Q: Tag taxonomy boundaries → A: Strict curated list only: `{#idea, #goal, #project, #area, #plan}`.
-- Q: Frontmatter id scheme → A: Hybrid `slug + short hash` (e.g., `project-abc123`).
-- Q: Project status controlled vocabulary → A: planned, active, paused, completed, cancelled.
+ Q: Activity Plan structure and scope → A: Per-project only; store under `2) Projects/<Project>/Activity Plans`; required: `tasks[]`, `schedule`, `dependencies`.
+ Q: Upstream link precedence for Project planning context → A: Goal primary; Idea secondary (use Idea if Goal is absent).
 
 ## User Scenarios & Testing (mandatory)
 
-### User Story 1 - Create an Idea note (Priority: P1)
-
-User captures a new Idea using a single command. The agent chooses the correct
-template, writes frontmatter, places the file under `0) Ideas/`, and
+ FR-017: For Project planning/clarify context, the primary upstream reference is the linked Goal; the Idea serves as secondary (fallback if no Goal).
+ FR-018: Project filenames MUST be slug-only (no date prefix); templates and scripts SHOULD enforce this naming for idempotency and stable linking.
 links to related notes if detected.
-
-**Why this priority**: Low friction capture is foundational; Ideas feed Goals and
+  - Activity Plan (per-project only; folder: `2) Projects/<Project>/Activity Plans`; frontmatter: tasks[], schedule, dependencies)
 Projects.
-
+  - Project (frontmatter: owner, scope, phases, status, links: goal, idea)
+    - status enum: `planned` | `active` | `paused` | `completed` | `cancelled`
+    - planning context precedence: Goal > Idea (fallback to Idea if no Goal)
 **Independent Test**: Run `obsidian.create` with type `Idea` and a short
 description; verify a single new Markdown file with correct structure and
 placement is created.
