@@ -14,10 +14,12 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 ## Structure
 - Vault/ (Virtual Vault for development/testing)
-	- Projects/
-	- Areas/
-	- Reference/Ideas/
-	- Archive/
+	- 0) Ideas/
+	- 1) Goals/
+	- 2) Projects/
+	- 3) Areas/
+	- 4) Reference/
+	- 5) Archive/
 - .obsidian/templates/ (Idea, Goal, Project, Area, Activity Plan)
 - .obsidian/prompts/ (obsidian.create, obsidian.elaborate, obsidian.clarify, obsidian.plan, obsidian.challenge)
 - .obsidian/scripts/powershell/ (create + helpers)

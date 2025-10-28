@@ -19,7 +19,7 @@ Branch: 001-note-templates-prompts
 - Idempotent scripts: detect existing notes; propose diffs instead of overwrite.
 - Human-in-the-loop: dry-run diffs reviewed in VS Code before any write.
 - Tracing: log prompt, params, paths, diffs to `.agent/logs/`.
-- Placement rules: enforce per note type (Idea→`Reference/Ideas/`, Project→`Projects/`).
+- Placement rules: enforce per note type (Idea→`0) Ideas/`, Project→`2) Projects/`).
 
 ## Alternatives considered
 

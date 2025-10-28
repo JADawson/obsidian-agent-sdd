@@ -50,5 +50,5 @@ Branch: 001-note-templates-prompts
 ## Validation Rules
 - tags ⊆ {#idea, #goal, #project, #area, #plan}
 - id must remain immutable once assigned
-- Activity Plan must be located under `Projects/<Project>/Activity Plans`
+- Activity Plan must be located under `2) Projects/<Project>/Activity Plans`
 - Project must link back to source Idea and/or Goal when derived

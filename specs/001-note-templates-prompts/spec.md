@@ -18,7 +18,7 @@
 ### User Story 1 - Create an Idea note (Priority: P1)
 
 User captures a new Idea using a single command. The agent chooses the correct
-template, writes frontmatter, places the file under `Reference/Ideas/`, and
+template, writes frontmatter, places the file under `0) Ideas/`, and
 links to related notes if detected.
 
 **Why this priority**: Low friction capture is foundational; Ideas feed Goals and
@@ -31,8 +31,8 @@ placement is created.
 **Acceptance Scenarios**:
 
 1. Given no existing note with the same title, when the user runs
-   `obsidian.create` with type `Idea`, then a new note is created in
-   `Reference/Ideas/` with required general and type-specific frontmatter.
+  `obsidian.create` with type `Idea`, then a new note is created in
+  `0) Ideas/` with required general and type-specific frontmatter.
 2. Given related notes exist, when creating the Idea, then the agent suggests or
    populates wiki links to those notes.
 
@@ -41,7 +41,7 @@ placement is created.
 ### User Story 2 - Plan from Idea to Project (Priority: P1)
 
 User selects an Idea and asks the agent to plan next steps, producing a Project
-note under `Projects/` with links back to the Idea and placeholders for phases
+note under `2) Projects/` with links back to the Idea and placeholders for phases
 and activities.
 
 **Why this priority**: Moving Ideas forward is core to value delivery.
@@ -52,7 +52,7 @@ Project note is created with required fields and cross-links.
 **Acceptance Scenarios**:
 
 1. Given an Idea note is selected, when the user runs `obsidian.plan`, then a
-   Project note is created under `Projects/` with mapped fields, initialized
+  Project note is created under `2) Projects/` with mapped fields, initialized
    phases, and links to the source Idea.
 2. Given the Project file already exists, when planning runs again, then the
    script performs an idempotent update or produces a safe diff for approval.
@@ -122,7 +122,7 @@ NEEDS CLARIFICATION (max 3):
 
 Resolved:
 
-- FR-013: Activity Plans are per-project only; stored under `Projects/<Project>/Activity Plans`; required frontmatter: `tasks` (array), `schedule`, `dependencies`.
+- FR-013: Activity Plans are per-project only; stored under `2) Projects/<Project>/Activity Plans`; required frontmatter: `tasks` (array), `schedule`, `dependencies`.
 - FR-014: Tags are strictly curated to `{#idea, #goal, #project, #area, #plan}`; agent MUST validate and reject non‑curated tags (with suggestion to map or remove).
 - FR-015: Frontmatter `id` uses hybrid scheme `slug + short hash` (e.g., `note-title-abc123`); generation MUST be deterministic and collision‑resistant; `id` MUST persist once assigned.
 

@@ -2,7 +2,7 @@
 
 <!--
 Sync Impact Report
-Version change: 0.2.0 → 0.3.0
+Version change: 0.3.0 → 0.4.0
 Modified principles:
 - [PRINCIPLE_1_NAME] → Markdown‑First, Vault‑Native
 - [PRINCIPLE_2_NAME] → Template‑Driven, Prompt‑Oriented
@@ -79,16 +79,20 @@ SHOULD be excluded from version control via `.gitignore`.
 
 ## Vault Structure & Content Standards
 
-- Default structure: `Projects/`, `Areas/`, `Reference/`, `Archive/`.
+- Default structure (numbered for stable sorting): `0) Ideas/`, `1) Goals/`, `2) Projects/`, `3) Areas/`, `4) Reference/`, `5) Archive/`.
 - Placement rules:
-	- Idea notes default to `Reference/Ideas/` unless linked to a Project.
-	- Project notes live in `Projects/` with subfolders as needed.
+	- Idea notes default to `0) Ideas/` unless immediately promoted or linked into a Project.
+	- Goal notes live in `1) Goals/`.
+	- Project notes live in `2) Projects/` with subfolders as needed.
+	- Area notes live in `3) Areas/`.
+	- General reference materials live in `4) Reference/`.
+	- Archived notes move to `5) Archive/` via explicit workflows.
 - Naming: `YYYY-MM-DD Title` for dated notes; otherwise concise kebab or
 	space‑separated titles. Filenames SHOULD match H1 titles.
-- Frontmatter: use `type: idea|project`, `status`, `created`, `updated`, and
+- Frontmatter: use `type: idea|project|goal|area|plan`, `status`, `created`, `updated`, and
 	stable identifiers when appropriate.
 - Linking: prefer `[[Note Title]]`. Use relative links; avoid absolute paths.
-- Tags: define a small, curated set (e.g., `#idea`, `#project`, `#area`).
+- Tags: define a small, curated set (e.g., `#idea`, `#project`, `#area`, `#goal`, `#plan`).
 - Templates MUST declare required fields and link/placement rules.
 - Authoritative template location: `.obsidian/templates/` (versioned).
 - Scripts location: `.obsidian/scripts/powershell/` with dry‑run support.
@@ -127,5 +131,5 @@ Quality gates:
 - Compliance reviews SHOULD occur at least once per quarter or before major
 	releases of templates/prompts.
 
-**Version**: 0.3.0 | **Ratified**: TODO(RATIFICATION_DATE) | **Last Amended**: 2025-10-28
+**Version**: 0.4.0 | **Ratified**: TODO(RATIFICATION_DATE) | **Last Amended**: 2025-10-28
 <!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
