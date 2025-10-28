@@ -140,12 +140,12 @@ Additional cleanup/polish tasks:
 
 Elaborate & Challenge scripts (Option B):
 
-- [ ] T054 [P] Add script entrypoint `.obsidian/scripts/powershell/obsidian.elaborate.ps1` (scaffold: -SelectedPath, -DryRun default, -Approve, import helpers)
-- [ ] T055 [P] Implement v1 elaborate analyzer for Idea/Project: detect empty required fields/sections per template/spec; propose diff; update `updated:`; write trace to `.agent/logs/`
-- [ ] T056 Update `.obsidian/prompts/obsidian.elaborate.md` with usage examples and guardrails
-- [ ] T057 [P] Add script entrypoint `.obsidian/scripts/powershell/obsidian.challenge.ps1` (scaffold: -SelectedPath, -DryRun default, -Approve, import helpers)
-- [ ] T058 [P] Implement v1 challenge flow: add/update `## Risks`, `## Assumptions`, `## Improvements` sections; propose diff; update `updated:`; write trace
-- [ ] T059 Update `.obsidian/prompts/obsidian.challenge.md` with usage examples and guardrails
+- [x] T054 [P] Add script entrypoint `.obsidian/scripts/powershell/obsidian.elaborate.ps1` (scaffold: -SelectedPath, -DryRun default, -Approve, import helpers)
+- [x] T055 [P] Implement v1 elaborate analyzer for Idea/Project: detect empty required fields/sections per template/spec; propose diff; update `updated:`; write trace to `.agent/logs/`
+- [x] T056 Update `.obsidian/prompts/obsidian.elaborate.md` with usage examples and guardrails
+- [x] T057 [P] Add script entrypoint `.obsidian/scripts/powershell/obsidian.challenge.ps1` (scaffold: -SelectedPath, -DryRun default, -Approve, import helpers)
+- [x] T058 [P] Implement v1 challenge flow: add/update `## Risks`, `## Assumptions`, `## Improvements` sections; propose diff; update `updated:`; write trace
+- [x] T059 Update `.obsidian/prompts/obsidian.challenge.md` with usage examples and guardrails
 
 ---
 
