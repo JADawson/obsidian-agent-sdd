@@ -25,6 +25,27 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 - .obsidian/scripts/powershell/ (create + helpers)
 - .agent/logs/ (traces, diffs)
 
+## Configuration
+- Configure absolute vault path and folder mapping in `.obsidian/config.json`:
+
+```
+{
+	"vaultPath": "C:\\Local Dev\\obsidian-agent\\Vault",
+	"folders": {
+		"idea": "0) Ideas",
+		"goal": "1) Goals",
+		"project": "2) Projects",
+		"area": "3) Areas",
+		"reference": "4) Reference",
+		"archive": "5) Archive"
+	},
+	"id": { "hashLength": 6, "separator": "-" },
+	"safety": { "dryRunByDefault": true, "requireApproval": true, "vaultBoundary": true }
+}
+```
+
+Scripts read this file to resolve vault-safe paths and placement rules.
+
 ## Usage (conceptual)
 - Use Copilot slash commands or run scripts directly with dry-run by default.
 - Select a note in VS Code when using context-sensitive prompts.

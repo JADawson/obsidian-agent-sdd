@@ -24,12 +24,12 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create `.obsidian/templates/` directory
-- [ ] T002 Create `.obsidian/prompts/` directory (authoritative prompts for this project)
-- [ ] T003 Create `.obsidian/scripts/powershell/` directory
-- [ ] T004 [P] Create `.agent/logs/` directory (traces; ensure ignored by VCS)
-- [ ] T005 Create `.obsidian/config.json` with absolute vault path and folder mapping
-- [ ] T006 [P] Add README in `.obsidian/` documenting templates, prompts, scripts ownership
+- [x] T001 Create `.obsidian/templates/` directory
+- [x] T002 Create `.obsidian/prompts/` directory (authoritative prompts for this project)
+- [x] T003 Create `.obsidian/scripts/powershell/` directory
+- [x] T004 [P] Create `.agent/logs/` directory (traces; ensure ignored by VCS)
+- [x] T005 Create `.obsidian/config.json` with absolute vault path and folder mapping
+- [x] T006 [P] Add README in `.obsidian/` documenting templates, prompts, scripts ownership
 
 ---
 
@@ -39,24 +39,24 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T007 Implement helper module `.obsidian/scripts/powershell/helpers.ps1` (importable)
-- [ ] T008 [P] Add `Get-Slug`, `Get-ShortHash`, `New-NoteId` to helpers (slug+hash id)
-- [ ] T009 [P] Add `Sanitize-Filename`, `Resolve-VaultPath`, and folder mapping functions to helpers
-- [ ] T010 Implement `Write-Trace` (write JSON trace + diff to `.agent/logs/`)
-- [ ] T011 Implement `New-DryRunDiff` with human-approval gating (no write on dry-run)
-- [ ] T012 Define placement rules/constants in `.obsidian/scripts/powershell/helpers.ps1` per constitution (Idea→`0) Ideas/`, Project→`2) Projects/`, etc.)
-- [ ] T013 Create templates: `.obsidian/templates/idea.v1.md`
-- [ ] T014 [P] Create templates: `.obsidian/templates/goal.v1.md`
-- [ ] T015 [P] Create templates: `.obsidian/templates/project.v1.md`
-- [ ] T016 [P] Create templates: `.obsidian/templates/area.v1.md`
-- [ ] T017 [P] Create templates: `.obsidian/templates/activity-plan.v1.md`
-- [ ] T018 Create prompts: `.obsidian/prompts/obsidian.create.md` (covers Idea/Goal/Project/Area)
-- [ ] T019 [P] Create prompts: `.obsidian/prompts/obsidian.plan.md`
-- [ ] T020 [P] Create prompts: `.obsidian/prompts/obsidian.clarify.md`
-- [ ] T021 [P] Create prompts: `.obsidian/prompts/obsidian.elaborate.md`
-- [ ] T022 [P] Create prompts: `.obsidian/prompts/obsidian.challenge.md`
-- [ ] T023 Create script entrypoint `.obsidian/scripts/powershell/obsidian.create.ps1` (scaffold: parameters, dry-run switch, import helpers)
-- [ ] T024 Update `specs/001-note-templates-prompts/quickstart.md` with `.obsidian/config.json` usage and numbered vault rules
+- [x] T007 Implement helper module `.obsidian/scripts/powershell/helpers.ps1` (importable)
+- [x] T008 [P] Add `Get-Slug`, `Get-ShortHash`, `New-NoteId` to helpers (slug+hash id)
+- [x] T009 [P] Add `Sanitize-Filename`, `Resolve-VaultPath`, and folder mapping functions to helpers
+- [x] T010 Implement `Write-Trace` (write JSON trace + diff to `.agent/logs/`)
+- [x] T011 Implement `New-DryRunDiff` with human-approval gating (no write on dry-run)
+- [x] T012 Define placement rules/constants in `.obsidian/scripts/powershell/helpers.ps1` per constitution (Idea→`0) Ideas/`, Project→`2) Projects/`, etc.)
+- [x] T013 Create templates: `.obsidian/templates/idea.v1.md`
+- [x] T014 [P] Create templates: `.obsidian/templates/goal.v1.md`
+- [x] T015 [P] Create templates: `.obsidian/templates/project.v1.md`
+- [x] T016 [P] Create templates: `.obsidian/templates/area.v1.md`
+- [x] T017 [P] Create templates: `.obsidian/templates/activity-plan.v1.md`
+- [x] T018 Create prompts: `.obsidian/prompts/obsidian.create.md` (covers Idea/Goal/Project/Area)
+- [x] T019 [P] Create prompts: `.obsidian/prompts/obsidian.plan.md`
+- [x] T020 [P] Create prompts: `.obsidian/prompts/obsidian.clarify.md`
+- [x] T021 [P] Create prompts: `.obsidian/prompts/obsidian.elaborate.md`
+- [x] T022 [P] Create prompts: `.obsidian/prompts/obsidian.challenge.md`
+- [x] T023 Create script entrypoint `.obsidian/scripts/powershell/obsidian.create.ps1` (scaffold: parameters, dry-run switch, import helpers)
+- [x] T024 Update `specs/001-note-templates-prompts/quickstart.md` with `.obsidian/config.json` usage and numbered vault rules
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

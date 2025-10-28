@@ -1,0 +1,20 @@
+{
+  "vaultPath": "C:\\Local Dev\\obsidian-agent\\Vault",
+  "folders": {
+    "idea": "0) Ideas",
+    "goal": "1) Goals",
+    "project": "2) Projects",
+    "area": "3) Areas",
+    "reference": "4) Reference",
+    "archive": "5) Archive"
+  },
+  "id": {
+    "hashLength": 6,
+    "separator": "-"
+  },
+  "safety": {
+    "dryRunByDefault": true,
+    "requireApproval": true,
+    "vaultBoundary": true
+  }
+}
