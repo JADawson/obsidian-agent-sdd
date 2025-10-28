@@ -126,6 +126,27 @@
 - [ ] T043 Security/safety hardening: validate path traversal and confirm vault boundary
 - [ ] T044 [P] Add `.agent/logs/` rotation policy doc in repository README or `.agent/README.md`
 
+Additional cleanup/polish tasks:
+
+- [ ] T045 [P] Add `.obsidian/templates/README.md` documenting placeholders, required frontmatter (status enum, links.area), and conventions
+- [ ] T046 Create `.agent/README.md` and document logs format, retention, and privacy considerations (fulfill T044 here)
+- [ ] T047 Refactor helper verbs to approved names: `Sanitize-Filename` → `ConvertTo-FilenameSafe`, `Get-Slug` → `ConvertTo-Slug`; update module exports and script imports
+- [ ] T048 Update prompt docs to reflect approved-verb refactor where referenced and ensure numbered Vault and `-Approve` examples across: `.obsidian/prompts/obsidian.create.md`, `.obsidian/prompts/obsidian.plan.md`, `.obsidian/prompts/obsidian.clarify.md`
+- [ ] T049 Improve `obsidian.plan.ps1` idempotent updates: preserve existing body content on re-run; update only frontmatter fields when target Project already exists
+- [ ] T050 Add `obsidian.validate.ps1` to scan Vault for spec violations (tags set, status enum, presence of `links.area`, vault boundary); dry-run by default with report to `.agent/logs/`
+- [ ] T051 Verify `.gitignore` includes `.agent/`, OS/editor artifacts; append missing essentials if any
+- [ ] T052 [P] Add `.vscode/tasks.json` with tasks to run create/plan/clarify (dry-run and approve) for quick access
+- [ ] T053 Normalize CRLF handling in diffs and content writes; document newline policy in `.obsidian/README.md`
+
+Elaborate & Challenge scripts (Option B):
+
+- [ ] T054 [P] Add script entrypoint `.obsidian/scripts/powershell/obsidian.elaborate.ps1` (scaffold: -SelectedPath, -DryRun default, -Approve, import helpers)
+- [ ] T055 [P] Implement v1 elaborate analyzer for Idea/Project: detect empty required fields/sections per template/spec; propose diff; update `updated:`; write trace to `.agent/logs/`
+- [ ] T056 Update `.obsidian/prompts/obsidian.elaborate.md` with usage examples and guardrails
+- [ ] T057 [P] Add script entrypoint `.obsidian/scripts/powershell/obsidian.challenge.ps1` (scaffold: -SelectedPath, -DryRun default, -Approve, import helpers)
+- [ ] T058 [P] Implement v1 challenge flow: add/update `## Risks`, `## Assumptions`, `## Improvements` sections; propose diff; update `updated:`; write trace
+- [ ] T059 Update `.obsidian/prompts/obsidian.challenge.md` with usage examples and guardrails
+
 ---
 
 ## Dependencies & Execution Order
